@@ -74,7 +74,8 @@ def print_attr():
         leftover_space = FILTER_SIZE - items_filter
 
         print("---Leftover space filling---")
-        print("There are ", leftover_space, "spaces left in the chests to fill with individual codes")
+        print("There are ", leftover_space, "spaces left in the chests to fill with individual codes\n"
+                                            "that have", rotation_tokens, "tokens")
         active_ratio = rotation_tokens / BITS
 
         individual_codes = int(leftover_space / active_ratio)
@@ -84,6 +85,7 @@ def print_attr():
         usable_codes += individual_codes
 
     ###########################################################################################
+    # Results
 
     ratio_percent = (usable_codes / THEORETICAL_LIMIT) * 100
 
@@ -106,9 +108,10 @@ def do_math():
 if __name__ == '__main__':
     while True:
         opt = input("What to do? [c] for code_attr / [m] for math: ")
-        if opt.lower()[0] == 'c':
+        first_char = opt.lower()[0]
+        if first_char == 'c':
             print_attr()
             break
-        elif opt.lower()[0] == 'm':
+        elif first_char == 'm':
             do_math()
             break
