@@ -1,3 +1,4 @@
 .idea
 venv
 usable_codes.csv
+__pycache__
