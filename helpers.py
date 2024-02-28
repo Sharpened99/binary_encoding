@@ -16,6 +16,9 @@ def n_choose_k(n: int, k: int) -> int:
 
 
 def count_tokens(num: int) -> int:
+    """
+    count bits set to one in num.
+    """
     tokens = 0
     while num != 0:
         tokens += num & 1
@@ -44,6 +47,9 @@ def rotate_right(x: int, max_bits: int, n = 1) -> int:
 
 
 def get_overlap(x: int, y: int) -> int:
+    """
+    count the bits to set to one in (x & y).
+    """
     count = 0
     while x > 0 and y > 0:
         count += (x & 1) & (y & 1)
@@ -54,6 +60,9 @@ def get_overlap(x: int, y: int) -> int:
 
 
 def zero_pad_to_len(s: str, length: int) -> str:
+    """
+    leftpads s to given length with zero.
+    """
     while len(s) < length:
         s = "0" + s
     return s

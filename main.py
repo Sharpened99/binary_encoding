@@ -27,6 +27,10 @@ def generate_constants():
 
 
 def maximum_all_perm_tokens() -> tuple[int, int]:
+    """
+    Returns maximum amount of tokens where all permutations are unique codes.
+    Returns items per filter with those codes used.
+    """
     usable_codes = 0
     items_filter = 0
     tokens = 1
@@ -40,6 +44,10 @@ def maximum_all_perm_tokens() -> tuple[int, int]:
 
 
 def get_number_rotations(tokens: int) -> tuple[int, int]:
+    """
+    Returns how many codes can be used by rotating codes with token active bits.
+    (rotations are easy permutations that fill filters evenly)
+    """
     rotations = 0
     items_filter = maximum_all_perm_tokens()[1]
 
@@ -51,6 +59,9 @@ def get_number_rotations(tokens: int) -> tuple[int, int]:
 
 
 def get_number_leftover_codes(leftover_space: int, rotation_tokens: int, usable_codes: int) -> int:
+    """
+    Returns how many codes we can squeeze out by manually using lefotver space in filters.
+    """
     individual_codes = 0
     if usable_codes < THEORETICAL_LIMIT:
         active_ratio = rotation_tokens / BITS
@@ -121,6 +132,10 @@ def find_usable_codes():
 
 
 def generate_permutations_list(max_tokens: int):
+    """
+    Generate codes with given maximum amount of tokens.
+    Returns list of those codes as numbers in sorted order.
+    """
     numbers = [*range(1, 2 ** BITS)]
 
     i = 2 ** max_tokens - 1
@@ -181,6 +196,9 @@ def write_all_rotation_codes() -> tuple[str, list[int]]:
 
 
 def remove_rot_dup(n_token_numbers):
+    """
+    Removes rotational duplicates from numbers with given amount of tokens.
+    """
     no_rotational_dup = []
     for new_val in n_token_numbers:
         counter = 0
