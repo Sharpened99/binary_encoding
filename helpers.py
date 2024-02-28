@@ -50,13 +50,9 @@ def get_overlap(x: int, y: int) -> int:
     """
     count the bits to set to one in (x & y).
     """
-    count = 0
-    while x > 0 and y > 0:
-        count += (x & 1) & (y & 1)
-        x >>= 1
-        y >>= 1
+    anded: int = x & y
 
-    return count
+    return count_tokens(anded)
 
 
 def zero_pad_to_len(s: str, length: int) -> str:
