@@ -243,7 +243,7 @@ def write_individual_codes(used_codes) -> str:
     for n in free_codes:
         bin_nums.append(bin(n))
 
-    print(bin_nums)
+    # print(bin_nums)
 
     individual_codes = free_codes[0: leftover_codes]
     for num in individual_codes:
